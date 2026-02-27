@@ -51,7 +51,10 @@ export default function EditorPanel({ onAnalyze, isAnalyzing }) {
             </div>
 
             <button
-                onClick={() => onAnalyze(text)}
+                onClick={() => {
+                    console.log("BUTTON CLICKED OUT LOUD: ", text);
+                    onAnalyze(text);
+                }}
                 disabled={!text.trim() || isAnalyzing}
                 className="mt-auto w-full bg-white text-[var(--color-brand-navy)] hover:bg-slate-200 disabled:bg-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed font-semibold py-3.5 px-6 rounded-xl transition-all flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-[0.98]"
             >
