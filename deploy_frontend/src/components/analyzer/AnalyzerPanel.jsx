@@ -36,13 +36,20 @@ export default function AnalyzerPanel() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 25000);
 
+        let targetUrl; // Declare targetUrl here to make it accessible in catch block
+
         try {
-            // Use environment variable for API URL (fallback to localhost for dev)
-            const API = import.meta.env.VITE_API_URL || 'http://localhost:10000';
+            // Hard fallback URL for safety if env variable is bad or missing
+            const envUrl = import.meta.env.VITE_API_URL;
+            const API = envUrl && envUrl.trim() !== '' ? envUrl : 'https://sentiment-api-glxn.onrender.com';
 
-            console.log("SENDING REQUEST TO:", API); // Log this to check the URL
+            // Clean up trailing slashes
+            const cleanAPI = API.endsWith('/') ? API.slice(0, -1) : API;
+            targetUrl = `${cleanAPI}/predict`; // Assign to the declared variable
 
-            const response = await fetch(`${API}/predict`, {
+            console.log("SENDING REQUEST TO:", targetUrl); // Log this to check the URL
+
+            const response = await fetch(targetUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ text }),
