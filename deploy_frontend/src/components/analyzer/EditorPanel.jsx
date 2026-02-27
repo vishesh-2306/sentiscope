@@ -21,9 +21,12 @@ export default function EditorPanel({ onAnalyze, isAnalyzing }) {
             {/* Subtle top glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-brand-accent)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            <div className="flex items-center gap-2 mb-6">
-                <MessageSquareQuote className="w-5 h-5 text-slate-400" />
-                <h2 className="text-lg font-medium text-white tracking-wide">Analysis Input</h2>
+            <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                    <MessageSquareQuote className="w-5 h-5 text-slate-400" />
+                    <h2 className="text-lg font-medium text-white tracking-wide">Analysis Input</h2>
+                </div>
+                <span className="text-[10px] text-slate-600 font-mono">v3.0.1 (deploy_frontend)</span>
             </div>
 
             <div className="relative flex-1 flex flex-col min-h-[200px]">
