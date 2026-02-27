@@ -39,28 +39,30 @@ export default function MetricBars({ breakdown }) {
                 </div>
                 <div className="flex justify-between mt-2 text-[10px] font-bold tracking-wider uppercase">
                     <span className="text-[var(--color-brand-green)]">{breakdown.positive.toFixed(1)}%</span>
-                    <span className="text-[var(--color-brand-amber)]">{breakdown.neutral.toFixed(1)}%</span>
+                    <span className="text-[var(--color-brand-amber)]">{(breakdown.neutral || 0).toFixed(1)}%</span>
                     <span className="text-[var(--color-brand-red)]">{breakdown.negative.toFixed(1)}%</span>
                 </div>
             </div>
 
             {/* Tone Strength */}
-            <div>
-                <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest flex items-center gap-2">Tone Strength</h4>
-                    <span className="text-sm font-bold text-white font-mono">{breakdown.tone_strength.toFixed(1)}%</span>
+            {breakdown.tone_strength !== undefined && (
+                <div>
+                    <div className="flex justify-between items-center mb-2">
+                        <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest flex items-center gap-2">Tone Strength</h4>
+                        <span className="text-sm font-bold text-white font-mono">{breakdown.tone_strength.toFixed(1)}%</span>
+                    </div>
+                    <div className="w-full bg-[#0b0f15] rounded-full h-2 shadow-inner overflow-hidden border border-slate-800">
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: `${breakdown.tone_strength}%` }}
+                            transition={{ duration: 1.2, delay: 1, ease: "easeOut" }}
+                            className={`h-full bg-gradient-to-r rounded-r-none
+                  ${breakdown.positive > breakdown.negative ? 'from-green-900 via-[var(--color-brand-green)] to-green-400' : 'from-red-900 via-[var(--color-brand-red)] to-red-400'}
+                `}
+                        />
+                    </div>
                 </div>
-                <div className="w-full bg-[#0b0f15] rounded-full h-2 shadow-inner overflow-hidden border border-slate-800">
-                    <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${breakdown.tone_strength}%` }}
-                        transition={{ duration: 1.2, delay: 1, ease: "easeOut" }}
-                        className={`h-full bg-gradient-to-r rounded-r-none
-              ${breakdown.positive > breakdown.negative ? 'from-green-900 via-[var(--color-brand-green)] to-green-400' : 'from-red-900 via-[var(--color-brand-red)] to-red-400'}
-            `}
-                    />
-                </div>
-            </div>
+            )}
 
         </div>
     );
