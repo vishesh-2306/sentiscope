@@ -4,3 +4,4 @@ pydantic==2.6.1
 scikit-learn
 numpy
 joblib
+nltk
