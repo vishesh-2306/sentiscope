@@ -12,10 +12,7 @@ export default function Header() {
                 <nav className="flex items-center gap-6 text-sm font-medium text-slate-300">
                     <a href="#analyzer" className="hover:text-white transition-colors">Analyzer</a>
                     <a href="#analytics" className="hover:text-white transition-colors">Analytics</a>
-                    <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-                        <Github className="w-4 h-4" />
-                        <span>GitHub</span>
-                    </a>
+
                 </nav>
             </div>
         </header>

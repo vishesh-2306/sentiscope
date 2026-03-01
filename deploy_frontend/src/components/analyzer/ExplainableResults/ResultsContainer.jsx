@@ -52,13 +52,7 @@ export default function ResultsContainer({ result, isAnalyzing }) {
                                     {result.sentiment}
                                 </h3>
                             </div>
-                            <div className="text-right">
-                                <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Rating</div>
-                                <div className="text-2xl font-black text-white tracking-widest">
-                                    {"⭐".repeat(result.rating)}
-                                    <span className="opacity-20">{"⭐".repeat(5 - result.rating)}</span>
-                                </div>
-                            </div>
+
                         </div>
 
                         {/* X-Ray Highlighted Text View */}

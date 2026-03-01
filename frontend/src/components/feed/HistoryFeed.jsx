@@ -35,7 +35,7 @@ export default function HistoryFeed({ history }) {
                                     >
                                         {item.sentiment}
                                     </span>
-                                    <span className="text-xs text-slate-500">{item.rating} Stars</span>
+
                                 </div>
                                 <p className="text-sm text-slate-300 line-clamp-3 leading-relaxed">
                                     "{item.text}"

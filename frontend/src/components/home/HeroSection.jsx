@@ -13,10 +13,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.5 }}
                 className="z-10 flex flex-col items-center"
             >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-border)]/50 border border-[var(--color-brand-border)] text-sm text-[var(--color-brand-accent)] font-medium mb-6">
-                    <Sparkles className="w-4 h-4" />
-                    <span>v2.0 Advanced Transformers Pipeline</span>
-                </div>
+
 
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 max-w-4xl">
                     Instantly understand the <br className="hidden md:block" />
@@ -26,7 +23,7 @@ export default function HeroSection() {
                 </h1>
 
                 <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
-                    The developer-first sentiment analysis engine. Paste text or connect our API to decode nuanced emotion, intent, and exact 5-star ratings in real-time.
+                    The developer-first sentiment analysis engine. Paste text or connect our API to decode nuanced emotion and intent in real-time.
                 </p>
 
                 <div className="flex items-center gap-4">
