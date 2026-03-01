@@ -18,6 +18,53 @@ Backend API: [https://sentiment-api-glxn.onrender.com/health](https://sentiment-
 
 ---
 
+## 🧠 Model Behavior & Known Limitations
+
+Sentiscope uses a classical NLP pipeline (TF-IDF + Logistic Regression).
+While this enables extremely fast inference (<50ms) and low memory usage, it comes with known linguistic limitations.
+
+### 1. Sarcasm & Irony
+
+The model evaluates lexical polarity rather than contextual intent.
+As a result, sarcastic sentences may be classified incorrectly.
+
+Example:
+"Amazing how this app deletes all my files in seconds."
+
+The presence of strongly positive words like "amazing" biases the prediction toward Positive despite negative real meaning.
+
+Reason:
+Traditional bag-of-words models cannot understand pragmatic contrast between tone and outcome.
+
+### 2. Mixed Sentiment (Polarity Conflict)
+
+Sentences containing both praise and criticism can produce unstable predictions.
+
+Example:
+"The visuals are beautiful but the story is painfully boring."
+
+The classifier weighs individual words instead of human emphasis.
+
+### 3. Domain Dependence
+
+The model is trained primarily on movie review data (IMDB dataset).
+Performance may degrade on domains such as finance, technical feedback, or slang-heavy social media text.
+
+### Why this is intentional
+
+Sentiscope exposes word-level contributions and polarity distribution to make model reasoning transparent instead of hiding prediction weaknesses.
+
+This highlights the difference between lexical sentiment detection and contextual language understanding.
+
+### Future Improvements
+
+* Transformer-based contextual embeddings (BERT / DistilBERT)
+* Sarcasm detection module
+* Domain adaptation datasets
+* Conversation-level sentiment tracking
+
+---
+
 ## 🏗️ Architecture
 
 The project is split into two distinct layers to separate the heavy ML development from the lightweight production deployment:
