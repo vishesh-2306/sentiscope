@@ -10,9 +10,10 @@ export default function Header() {
                 </div>
 
                 <nav className="flex items-center gap-6 text-sm font-medium text-slate-300">
-                    <a href="#analyzer" className="hover:text-white transition-colors">Analyzer</a>
-                    <a href="#analytics" className="hover:text-white transition-colors">Analytics</a>
-
+                    <a href="https://github.com/vishesh-2306/sentiscope" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
+                        <Github className="w-5 h-5" />
+                        <span className="hidden sm:inline">GitHub</span>
+                    </a>
                 </nav>
             </div>
         </header>

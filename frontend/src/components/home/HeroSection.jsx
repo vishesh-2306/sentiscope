@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Github } from 'lucide-react';
 
 export default function HeroSection() {
     return (
@@ -35,10 +35,13 @@ export default function HeroSection() {
                         <ArrowRight className="w-4 h-4" />
                     </a>
                     <a
-                        href="#docs"
+                        href="https://github.com/vishesh-2306/sentiscope"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[var(--color-brand-border)] text-white border border-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors"
                     >
-                        View Documentation
+                        <Github className="w-5 h-5" />
+                        GitHub Repo
                     </a>
                 </div>
             </motion.div>
